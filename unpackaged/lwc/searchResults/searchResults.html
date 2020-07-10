@@ -1,0 +1,14 @@
+<template>
+<template if:true={mAccountType.data}>
+    <div class="slds-grid slds-wrap">
+        <template for:each={mAccountType.data} for:item='account'>
+            <div key={account.Name} class="slds-col slds-size_1-of-3 slds-p-around_medium" >
+                   <c-card-component account={account} key={account.Id}></c-card-component>
+            </div>
+        </template>
+    </div>
+</template>
+    <template if:true={mAccountType.error}>
+        <p>{mAccountType.error}</p>
+    </template>
+</template>

@@ -1,0 +1,15 @@
+<template>
+  <div class="slds-grid slds-wrap" style="background-color:white;">
+    <template if:true={typePicklistValues.data}>
+      <div class="slds-size_1-of-2">
+      <lightning-combobox name="type" value={selectedValue} placeholder="All Types" options={typePicklistValues.data.values} onchange={handleChange} variant="label-stacked">
+      </lightning-combobox>
+      </div>
+    </template>
+      <template if:true={typePicklistValues.data}>
+      <div class="slds-size_1-of-2 slds-p-top_large slds-p-left_x-small">
+          <lightning-button label="Search" type="search" onclick={handleAccountType} variant='brand'></lightning-button>
+      </div>
+    </template>
+  </div>
+</template>

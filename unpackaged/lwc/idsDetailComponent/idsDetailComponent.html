@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Account Details">
+        <template if:true={recordEdit}>
+            <lightning-card title="Account Edit">
+            <lightning-record-edit-form 
+            record-id={details}
+            object-api-name="Account"
+            onsuccess = {handleAccountEdit}>
+            <lightning-input-field field-name="Name" value={ACCOUNT_NAME}> </lightning-input-field>
+            <lightning-input-field field-name="Phone" value={ACCOUNT_TYPE}> </lightning-input-field>
+            <lightning-input-field field-name="Type" value={ACCOUNT_INDUSTRY}> </lightning-input-field>
+            <lightning-input-field field-name="Website" value={ACCOUNT_WEBSITE}> </lightning-input-field>
+            <lightning-input-field field-name="Industry" value={ACCOUNT_PHONE}> </lightning-input-field>
+            <div class="slds-align_absolute-center">
+              <lightning-button class="slds-p-around_small" variant="brand" label="Cancel" onclick={handleSubmit}>
+              </lightning-button>
+              <lightning-button type="submit" variant="brand" label="Submit"></lightning-button>
+          </div>
+          </lightning-record-edit-form>
+          </lightning-card>
+      </template>
+      <template if:true={recordView}>
+        <!-- Record Display -->
+        <div class="slds-p-bottom_large slds-p-left_large" style="width: 600px; height:1000px">
+          <lightning-record-view-form
+            record-id={details}
+            object-api-name="Account">
+            <div class="slds-box">
+              <lightning-output-field field-name="Name"></lightning-output-field>
+              <lightning-output-field field-name="Phone"></lightning-output-field>
+              <lightning-output-field field-name="Type"></lightning-output-field>
+              <lightning-output-field field-name="Website"></lightning-output-field>
+              <lightning-output-field field-name="Industry"></lightning-output-field>
+            </div>
+            <lightning-button onclick={editRec} label='Edit'></lightning-button>
+          </lightning-record-view-form>
+        </div>
+      </template>
+  </lightning-card>
+  </template>
